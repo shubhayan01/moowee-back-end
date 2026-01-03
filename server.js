@@ -126,8 +126,9 @@ io.on("connection", (socket) => {
 });
 
 // ---------- EXPRESS MIDDLEWARE ----------
+const frontendOrigin = process.env.FRONTEND_ORIGIN || "http://localhost:5173";
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174"],
+  origin: [frontendOrigin, "http://localhost:5174"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
